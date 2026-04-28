@@ -1,0 +1,19 @@
+{
+  "id": "lilith",
+  "name": "Lilith's Binder",
+  "author": [
+    "LilithDev"
+  ],
+  "description": "Why not just a few more jokers!",
+  "prefix": "lilithsb",
+  "main_file": "main.lua",
+  "version": "1.0.0",
+  "priority": 0,
+  "badge_colour": "860CC3",
+  "badge_text_colour": "FFFFFF",
+  "no_marquee": true,
+  "dependencies": [
+    "Steamodded (>=1.0.0~BETA-0827c)",
+    "Talisman (>=2.7)"
+  ]
+}

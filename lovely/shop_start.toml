@@ -1,0 +1,56 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+match_indent = true
+position = "after"
+pattern = '''
+local nosave_shop = nil
+if not shop_exists then
+'''
+payload = '''
+-- Able to cancel shop generation
+if LilithUtil and LilithUtil.custom_shop_start() then
+    return true
+end
+'''
+
+# Skip Shop on Café Frequent Challenge
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.STATE = G.STATES.SHOP'''
+position = "after"
+payload = '''if (G.GAME.modifiers.no_shop) then G.STATE = G.STATES.BLIND_SELECT end'''
+match_indent = true
+
+# Again thank you Cryptid, seriously why is there no translation key
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = "{n=G.UIT.T, config={text = 'DEFEAT', scale = 0.6, colour = G.C.WHITE}}"
+position = "at"
+payload = "{n=G.UIT.T, config={text = (LilithUtil and LilithUtil.custom_restock_msg(1)) or 'DEFEAT', scale = 0.6, colour = G.C.WHITE}}"
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = "{n=G.UIT.T, config={text = 'BOSS BLIND', scale = 0.4, colour = G.C.WHITE}}"
+position = "at"
+payload = "{n=G.UIT.T, config={text = (LilithUtil and LilithUtil.custom_restock_msg(2)) or 'BOSS BLIND', scale = 0.4, colour = G.C.WHITE}}"
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = "{n=G.UIT.T, config={text = 'TO RESTOCK', scale = 0.4, colour = G.C.WHITE}}"
+position = "at"
+payload = "{n=G.UIT.T, config={text = (LilithUtil and LilithUtil.custom_restock_msg(3)) or 'TO RESTOCK', scale = 0.4, colour = G.C.WHITE}}"
+match_indent = true

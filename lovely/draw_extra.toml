@@ -1,0 +1,18 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+match_indent = true
+position = 'after'
+pattern = '''for i=1, hand_space do --draw cards from deckL
+    if G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK then 
+        draw_card(G.deck,G.hand, i*100/hand_space,'up', true, cards_to_draw[i])
+    else
+        draw_card(G.deck,G.hand, i*100/hand_space,'up', true, cards_to_draw[i])
+    end
+end'''
+payload = '''if LilithUtil then draw_extra_effect_lilith(hand_space) end'''

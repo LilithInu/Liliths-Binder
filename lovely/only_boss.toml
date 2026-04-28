@@ -1,0 +1,52 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 999
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+match_indent = true
+position = "at"
+pattern = '''
+G.GAME.blind_on_deck = 'Small'
+'''
+payload = '''
+G.GAME.blind_on_deck = G.GAME.modifiers.only_boss_blind and 'Boss' or 'Small'
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+match_indent = true
+position = "at"
+pattern = '''
+G.GAME.blind_on_deck = 'Small'
+'''
+payload = '''
+G.GAME.blind_on_deck = G.GAME.modifiers.only_boss_blind and 'Boss' or 'Small'
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+match_indent = true
+position = "at"
+pattern = '''
+G.GAME.round_resets.blind_states.Small = 'Upcoming'
+'''
+payload = '''
+G.GAME.round_resets.blind_states.Small = G.GAME.modifiers.only_boss_blind and 'Hide' or 'Upcoming'
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+match_indent = true
+position = "at"
+pattern = '''
+G.GAME.round_resets.blind_states.Big = 'Upcoming'
+'''
+payload = '''
+G.GAME.round_resets.blind_states.Big = G.GAME.modifiers.only_boss_blind and 'Hide' or 'Upcoming'
+'''

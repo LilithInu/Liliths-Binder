@@ -1,0 +1,45 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+position = 'at'
+pattern = '''if add and not G.GAME.banned_keys[v.key] then'''
+payload = '''if add and not (G.GAME.banned_keys[v.key] or (LilithUtil and LilithUtil.banned_joker(v))) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+position = 'at'
+pattern = '''if card.ability.consumeable and not skip_materialize then card:start_materialize() end'''
+payload = '''
+if LilithUtil then
+    LilithUtil.card_created(card)
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+position = 'after'
+pattern = '''if _pool_size == 0 then'''
+payload = '''
+if LilithUtil then
+    rarity = nil
+    for i = 1, #G.P_JOKER_RARITY_POOLS do
+        if G.P_JOKER_RARITY_POOLS[i] == _starting_pool then
+            --sendInfoMessage("Rarity is " .. i, "lily")
+            rarity = i
+        end
+    end
+    if LilithUtil.whenPoolEmpty(_type, rarity, _legendary, _append) then
+        return LilithUtil.doPoolReroll(_type, rarity, _legendary, _append)
+    end
+end
+'''
+match_indent = true
