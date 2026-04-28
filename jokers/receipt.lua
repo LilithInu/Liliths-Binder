@@ -23,7 +23,7 @@ SMODS.Joker{ --Receipt
         w = 71 * 1, 
         h = 95 * 1
     },
-    cost = 6,
+    cost = 3,
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
