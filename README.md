@@ -1,11 +1,11 @@
 # Lilith's Binder
-Balatro Mod that adds 15 Jokers!
-Just some effects I wanted to play with.
+Balatro Mod that adds 15 Jokers and 10 Challenges!
+Just some cards I wanted to play with.
 ![Jokers](https://i.imgur.com/9jagNeh.png)
-- 4 Commons
-- 5 Uncommons
-- 2 Rares
-- 4 Legendaries
+- **4 Commons**
+- **5 Uncommons**
+- **2 Rares**
+- **4 Legendaries**
 
 ## How to install
 1. This mod requires [Lovely (**V0.8.0 or later**)](https://github.com/ethangreen-dev/lovely-injector) and [Steammodded **V1.0.0-beta-1224a or later**](https://github.com/Steamodded/smods). Follow these links to install these respective mods, which will create a Mods directory (`%APPDATA%/Balatro/Mods`)
