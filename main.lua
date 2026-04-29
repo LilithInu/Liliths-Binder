@@ -18,14 +18,6 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
-    key = "CustomConsumables", 
-    path = "CustomConsumables.png", 
-    px = 71,
-    py = 95, 
-    atlas_table = "ASSET_ATLAS"
-})
-
-SMODS.Atlas({
     key = "CustomJokers", 
     path = "CustomJokers.png", 
     px = 71,
@@ -45,14 +37,6 @@ SMODS.Atlas({
     key = "MarxWings", 
     path = "MarxWings.png", 
     px = 103,
-    py = 95, 
-    atlas_table = "ASSET_ATLAS"
-})
-
-SMODS.Atlas({
-    key = "CustomDecks", 
-    path = "CustomDecks.png", 
-    px = 71,
     py = 95, 
     atlas_table = "ASSET_ATLAS"
 })

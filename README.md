@@ -23,7 +23,7 @@ Balatro Mod that adds 15 Jokers and 10 Challenges!
 
 2. This mod also requires [Talisman (**V2.7 or later**)](https://github.com/SpectralPack/Talisman/releases/tag/v2.7)
 
-3. Once all dependencies are installed, download the [latest release](https://github.com/LilithInu/Liliths-Binder/releases) and extract the `lilith-1.0.0` folder into your mods directory. You're all set!
+3. Once all dependencies are installed, download the [latest release](https://github.com/LilithInu/Liliths-Binder/releases) and extract the `Liliths-Binder-1.0.0` folder into your mods directory. You're all set!
 
 <div align="center">
 	<img src="https://i.imgur.com/0lVvzo4.png">
